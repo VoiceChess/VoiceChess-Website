@@ -93,8 +93,8 @@ export default function FeaturesSection() {
           </motion.p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Features Grid - 3 items top, 2 centered bottom */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -102,7 +102,13 @@ export default function FeaturesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
               viewport={{ once: true }}
-              className="group relative bg-primary border border-highlight/30 rounded-xl p-8 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5"
+              className={`group relative bg-primary border border-highlight/30 rounded-xl p-8 transition-all duration-300 hover:border-accent/50 hover:shadow-lg hover:shadow-accent/5 ${
+                index < 3
+                  ? 'lg:col-span-2'
+                  : index === 3
+                    ? 'lg:col-span-2 lg:col-start-2'
+                    : 'lg:col-span-2 lg:col-start-4'
+              }`}
             >
               {/* Icon background with low opacity */}
               <div className="absolute top-6 right-6 opacity-5">

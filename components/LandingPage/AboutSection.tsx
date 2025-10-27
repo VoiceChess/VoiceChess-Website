@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import { Heart, Mic, Users } from "lucide-react";
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
@@ -23,11 +24,11 @@ export default function AboutSection() {
           x: 0,
           opacity: 1,
           duration: 1,
-          ease: 'power3.out',
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top center+=100',
-            toggleActions: 'play none none reverse',
+            start: "top center+=100",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -39,11 +40,11 @@ export default function AboutSection() {
           x: 0,
           opacity: 1,
           duration: 1,
-          ease: 'power3.out',
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top center+=100',
-            toggleActions: 'play none none reverse',
+            start: "top center+=100",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -86,36 +87,57 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-lg text-text-secondary leading-relaxed">
-              VoiceMate Chess empowers blind players to experience the strategy, thrill, and emotion of chess through intelligent voice guidance.
+              VoiceMate Chess empowers blind players to experience the strategy,
+              thrill, and emotion of chess through intelligent voice guidance.
             </p>
 
             <p className="text-lg text-text-secondary leading-relaxed">
-              Our innovative technology bridges the gap between accessibility and competitive gaming, ensuring that everyone can enjoy the timeless game of chess regardless of visual ability.
+              Our innovative technology bridges the gap between accessibility
+              and competitive gaming, ensuring that everyone can enjoy the
+              timeless game of chess regardless of visual ability.
             </p>
 
             <div className="space-y-4 pt-4">
               {[
                 {
-                  title: 'Inclusive Design',
-                  description: 'Built from the ground up with accessibility in mind',
+                  icon: Heart,
+                  title: "Inclusive Design",
+                  description:
+                    "Built from the ground up with accessibility in mind",
                 },
                 {
-                  title: 'Smart Recognition',
-                  description: 'Advanced voice recognition technology for seamless play',
+                  icon: Mic,
+                  title: "Smart Recognition",
+                  description:
+                    "Advanced voice recognition technology for seamless play",
                 },
                 {
-                  title: 'Community Driven',
-                  description: 'Developed with input from blind chess players worldwide',
+                  icon: Users,
+                  title: "Community Driven",
+                  description:
+                    "Developed with input from blind chess players worldwide",
                 },
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-start space-x-4 p-4 rounded-lg bg-surface-light/50 hover:bg-surface-light transition-colors duration-300"
+                  className="relative flex items-start space-x-4 p-4 rounded-lg bg-surface-light/50 hover:bg-surface-light transition-colors duration-300 overflow-hidden"
                 >
-                  <div className="flex-shrink-0 w-2 h-2 bg-accent rounded-full mt-2" />
-                  <div>
-                    <h3 className="text-text-primary font-semibold text-lg">{item.title}</h3>
-                    <p className="text-text-secondary text-sm mt-1">{item.description}</p>
+                  {/* Icon background with low opacity */}
+                  <div className="absolute -bottom-3 -right-5 opacity-20">
+                    <item.icon
+                      className="w-16 h-16 text-accent"
+                      strokeWidth={1}
+                    />
+                  </div>
+
+                  <div className="flex-shrink-0 w-2 h-2 bg-accent rounded-full mt-2 relative z-10" />
+                  <div className="relative z-10">
+                    <h3 className="text-text-primary font-semibold text-lg">
+                      {item.title}
+                    </h3>
+                    <p className="text-text-secondary text-sm mt-1">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
               ))}
