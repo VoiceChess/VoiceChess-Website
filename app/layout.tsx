@@ -3,8 +3,10 @@ import "./globals.css";
 import StructuredData from "@/components/StructuredData";
 
 export const metadata: Metadata = {
-  title: "VoiceMate Chess - Voice-Controlled Chess for Visually Impaired Players",
-  description: "Experience chess like never before with VoiceMate Chess. Voice-controlled gameplay designed for visually impaired players with real-time audio feedback and intelligent assistance. Play chess with your voice - accessible for everyone.",
+  title:
+    "VoiceMate Chess - Voice-Controlled Chess for Visually Impaired Players",
+  description:
+    "Experience chess like never before with VoiceMate Chess. Voice-controlled gameplay designed for visually impaired players with real-time audio feedback and intelligent assistance. Play chess with your voice - accessible for everyone.",
   keywords: [
     "voice chess",
     "accessible chess",
@@ -24,8 +26,8 @@ export const metadata: Metadata = {
   publisher: "VoiceMate Chess",
   applicationName: "VoiceMate Chess",
   icons: {
-    icon: "/assets/images/Logo-NoBackground.jpg",
-    apple: "/assets/images/Logo-NoBackground.jpg",
+    icon: "/assets/images/Logo-Background.jpg",
+    apple: "/assets/images/Logo-Background.jpg",
   },
   openGraph: {
     type: "website",
@@ -33,7 +35,8 @@ export const metadata: Metadata = {
     url: "https://voicematechess.com",
     siteName: "VoiceMate Chess",
     title: "VoiceMate Chess - Voice-Controlled Chess for Everyone",
-    description: "Play chess with your voice. VoiceMate Chess is designed for visually impaired players with real-time audio feedback and intelligent assistance. Experience chess accessibility redefined.",
+    description:
+      "Play chess with your voice. VoiceMate Chess is designed for visually impaired players with real-time audio feedback and intelligent assistance. Experience chess accessibility redefined.",
     images: [
       {
         url: "/assets/images/mockup1.png",
@@ -46,7 +49,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "VoiceMate Chess - Voice-Controlled Chess for Everyone",
-    description: "Play chess with your voice. Accessible for visually impaired players with real-time audio feedback.",
+    description:
+      "Play chess with your voice. Accessible for visually impaired players with real-time audio feedback.",
     images: ["/assets/images/mockup1.png"],
     creator: "@VoiceMateChess",
   },
