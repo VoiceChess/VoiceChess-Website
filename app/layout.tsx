@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   publisher: "VoiceMate Chess",
   applicationName: "VoiceMate Chess",
   icons: {
-    icon: "/assets/images/Logo-Background.jpg",
-    apple: "/assets/images/Logo-Background.jpg",
+    icon: "/logos/Logo-Background.jpg",
+    apple: "/logos/Logo-Background.jpg",
   },
   openGraph: {
     type: "website",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       "Play chess with your voice. VoiceMate Chess is designed for visually impaired players with real-time audio feedback and intelligent assistance. Experience chess accessibility redefined.",
     images: [
       {
-        url: "/assets/images/mockup1.png",
+        url: "/mockups/mockup1.png",
         width: 1200,
         height: 630,
         alt: "VoiceMate Chess App - Voice-Controlled Chess",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "VoiceMate Chess - Voice-Controlled Chess for Everyone",
     description:
       "Play chess with your voice. Accessible for visually impaired players with real-time audio feedback.",
-    images: ["/assets/images/mockup1.png"],
+    images: ["/mockups/mockup1.png"],
     creator: "@VoiceMateChess",
   },
   robots: {

@@ -47,7 +47,7 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <Image
-              src="/assets/images/Logo-NoBackground.png"
+              src="/logos/Logo-NoBackground.png"
               alt="VoiceMate Chess Logo"
               width={120}
               height={40}

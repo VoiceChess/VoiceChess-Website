@@ -22,7 +22,7 @@ export default function StructuredData() {
           "ratingCount": "10000"
         },
         "description": "Voice-controlled chess app designed for visually impaired players with real-time audio feedback and intelligent assistance.",
-        "screenshot": "https://voicematechess.com/assets/images/mockup1.png",
+        "screenshot": "https://voicematechess.com/mockups/mockup1.png",
         "featureList": [
           "Voice-controlled gameplay",
           "Real-time audio feedback",
@@ -54,7 +54,7 @@ export default function StructuredData() {
         "@type": "Organization",
         "name": "VoiceMate Chess",
         "url": "https://voicematechess.com",
-        "logo": "https://voicematechess.com/assets/images/Logo-NoBackground.jpg",
+        "logo": "https://voicematechess.com/logos/Logo-NoBackground.jpg",
         "sameAs": [
           "https://twitter.com/VoiceMateChess",
           "https://facebook.com/VoiceMateChess",

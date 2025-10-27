@@ -74,7 +74,7 @@ export default function HeroSection() {
           className="relative w-[260px] h-[520px]"
         >
           <Image
-            src="/assets/images/mockup1.png"
+            src="/mockups/mockup1.png"
             alt="VoiceMate Chess App Background"
             fill
             className="object-cover"
@@ -166,7 +166,7 @@ export default function HeroSection() {
               >
                 <div className="relative w-56 h-[500px] overflow-hidden shadow-lg">
                   <Image
-                    src="/assets/images/mockup1.png"
+                    src="/mockups/mockup1.png"
                     alt="VoiceMate Chess App Screen"
                     fill
                     className="object-cover"
@@ -187,7 +187,7 @@ export default function HeroSection() {
               >
                 <div className="relative w-56 h-[500px] overflow-hidden shadow-xl">
                   <Image
-                    src="/assets/images/mockup2.jpg"
+                    src="/mockups/mockup2.jpg"
                     alt="VoiceMate Chess App Main Screen"
                     fill
                     className="object-cover"
@@ -208,7 +208,7 @@ export default function HeroSection() {
               >
                 <div className="relative w-56 h-[500px] overflow-hidden shadow-lg">
                   <Image
-                    src="/assets/images/mockup3.jpg"
+                    src="/mockups/mockup3.jpg"
                     alt="VoiceMate Chess App Screen"
                     fill
                     className="object-cover"
