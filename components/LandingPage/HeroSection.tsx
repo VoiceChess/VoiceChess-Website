@@ -134,60 +134,74 @@ export default function HeroSection() {
           </div>
 
           {/* Right - Phone Mockups with Real Images */}
-          <div className="relative h-[500px] w-full hidden lg:flex lg:justify-center lg:items-center">
-            {/* Phone 1 - Left Back */}
-            <motion.div
-              initial={{ opacity: 0, x: -30, y: 40, scale: 0.85 }}
-              animate={{ opacity: 0.8, x: 0, y: 0, scale: 0.85 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute left-0 top-16 transform -rotate-[15deg] z-10"
-            >
-              <div className="relative w-48 h-[380px] overflow-hidden shadow-md">
-                <Image
-                  src="/assets/images/mockup.jpg"
-                  alt="VoiceMate Chess App Screen"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </motion.div>
+          <div className="relative h-[550px] w-full hidden lg:block">
+            <div className="absolute inset-0 flex left-40 top-40 items-center justify-center gap-6 translate-x-8 translate-y-16">
+              {/* Phone 1 - Left Back */}
+              <motion.div
+                initial={{ opacity: 0, x: -50, y: 40, rotateZ: -12 }}
+                animate={{ opacity: 1, x: 0, y: 0, rotateZ: -12 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.3,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="z-10"
+              >
+                <div className="relative w-56 h-[500px] overflow-hidden shadow-lg">
+                  <Image
+                    src="/assets/images/mockup1.png"
+                    alt="VoiceMate Chess App Screen"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </motion.div>
 
-            {/* Phone 2 - Center Front */}
-            <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute left-1/2 -translate-x-1/2 top-0 z-30"
-            >
-              <div className="relative w-52 h-[420px] overflow-hidden shadow-lg">
-                <Image
-                  src="/assets/images/mockup1.png"
-                  alt="VoiceMate Chess App Main Screen"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </motion.div>
+              {/* Phone 2 - Center Middle */}
+              <motion.div
+                initial={{ opacity: 0, y: 40, rotateZ: -12 }}
+                animate={{ opacity: 1, y: 0, rotateZ: -12 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.5,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="z-20"
+              >
+                <div className="relative w-56 h-[500px] overflow-hidden shadow-xl">
+                  <Image
+                    src="/assets/images/mockup2.jpg"
+                    alt="VoiceMate Chess App Main Screen"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </motion.div>
 
-            {/* Phone 3 - Right Back */}
-            <motion.div
-              initial={{ opacity: 0, x: 30, y: 40, scale: 0.85 }}
-              animate={{ opacity: 0.8, x: 0, y: 0, scale: 0.85 }}
-              transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute right-0 top-16 transform rotate-[15deg] z-10"
-            >
-              <div className="relative w-48 h-[380px] overflow-hidden shadow-md">
-                <Image
-                  src="/assets/images/mockup.jpg"
-                  alt="VoiceMate Chess App Screen"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </motion.div>
+              {/* Phone 3 - Right Front (half visible) */}
+              <motion.div
+                initial={{ opacity: 0, x: 50, y: 40, rotateZ: -12 }}
+                animate={{ opacity: 1, x: 0, y: 0, rotateZ: -12 }}
+                transition={{
+                  duration: 1,
+                  delay: 0.4,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="z-30"
+              >
+                <div className="relative w-56 h-[500px] overflow-hidden shadow-lg">
+                  <Image
+                    src="/assets/images/mockup3.jpg"
+                    alt="VoiceMate Chess App Screen"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </motion.div>
 
-            {/* Glow effect behind center phone */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-64 h-64 bg-accent/20 rounded-full blur-3xl z-0" />
+              {/* Glow effect behind center phone */}
+              <div className="absolute w-64 h-64 bg-accent/20 rounded-full blur-3xl z-0" />
+            </div>
           </div>
 
           {/* Mobile - Single Phone */}

@@ -42,18 +42,18 @@ export default function DownloadSection() {
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <button className="group bg-primary text-accent px-8 py-6 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-primary/90 hover:shadow-xl flex items-center space-x-4 min-w-[280px]">
-              <AppleIcon className="w-8 h-8" />
+            <button className="group bg-primary text-white px-8 py-6 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-primary/90 hover:shadow-xl flex items-center space-x-4 min-w-[280px]">
+              <AppleIcon className="w-8 h-8 text-white" />
               <div className="text-left">
-                <div className="text-xs text-accent/70">Download on the</div>
+                <div className="text-xs text-white/70">Download on the</div>
                 <div className="text-xl font-bold">App Store</div>
               </div>
             </button>
 
-            <button className="group bg-primary text-accent px-8 py-6 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-primary/90 hover:shadow-xl flex items-center space-x-4 min-w-[280px]">
+            <button className="group bg-primary text-white px-8 py-6 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-primary/90 hover:shadow-xl flex items-center space-x-4 min-w-[280px]">
               <GooglePlayIcon className="w-8 h-8" />
               <div className="text-left">
-                <div className="text-xs text-accent/70">Get it on</div>
+                <div className="text-xs text-white/70">Get it on</div>
                 <div className="text-xl font-bold">Google Play</div>
               </div>
             </button>

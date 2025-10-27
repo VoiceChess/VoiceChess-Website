@@ -1,34 +1,34 @@
 "use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Instagram } from 'lucide-react';
-import Image from 'next/image';
+import React from "react";
+import { motion } from "framer-motion";
+import { Instagram } from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = {
   product: [
-    { name: 'Features', href: '#features' },
-    { name: 'Accessibility', href: '#accessibility' },
-    { name: 'Download', href: '#download' },
-    { name: 'Pricing', href: '#' },
+    { name: "Features", href: "#features" },
+    { name: "Accessibility", href: "#accessibility" },
+    { name: "Download", href: "#download" },
+    { name: "Pricing", href: "#" },
   ],
   company: [
-    { name: 'About Us', href: '#about' },
-    { name: 'Careers', href: '#' },
-    { name: 'Blog', href: '#' },
-    { name: 'Press Kit', href: '#' },
+    { name: "About Us", href: "#about" },
+    { name: "Careers", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "Press Kit", href: "#" },
   ],
   support: [
-    { name: 'Help Center', href: '#' },
-    { name: 'Documentation', href: '#' },
-    { name: 'Community', href: '#' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: "Help Center", href: "#" },
+    { name: "Documentation", href: "#" },
+    { name: "Community", href: "#" },
+    { name: "Contact Us", href: "#contact" },
   ],
   legal: [
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
-    { name: 'Cookie Policy', href: '#' },
-    { name: 'Accessibility', href: '#' },
+    { name: "Privacy Policy", href: "#" },
+    { name: "Terms of Service", href: "#" },
+    { name: "Cookie Policy", href: "#" },
+    { name: "Accessibility", href: "#" },
   ],
 };
 
@@ -48,7 +48,7 @@ export default function Footer() {
           >
             <div className="mb-4">
               <Image
-                src="/assets/images/Logo-NoBackground.jpg"
+                src="/assets/images/Logo-NoBackground.png"
                 alt="VoiceMate Chess Logo"
                 width={150}
                 height={50}
@@ -56,7 +56,8 @@ export default function Footer() {
               />
             </div>
             <p className="text-text-secondary leading-relaxed mb-6">
-              Making strategy audible. The first accessible chess app designed specifically for blind and visually impaired players.
+              Making strategy audible. The first accessible chess app designed
+              specifically for blind and visually impaired players.
             </p>
 
             <div className="flex space-x-4">
@@ -72,31 +73,33 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 * (categoryIndex + 1) }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-text-primary font-semibold text-lg mb-4 capitalize">
-                {category}
-              </h3>
-              <ul className="space-y-3">
-                {links.map((link, index) => (
-                  <li key={index}>
-                    <a
-                      href={link.href}
-                      className="text-text-secondary hover:text-accent transition-colors duration-300 text-sm"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+          {Object.entries(footerLinks).map(
+            ([category, links], categoryIndex) => (
+              <motion.div
+                key={category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 * (categoryIndex + 1) }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-text-primary font-semibold text-lg mb-4 capitalize">
+                  {category}
+                </h3>
+                <ul className="space-y-3">
+                  {links.map((link, index) => (
+                    <li key={index}>
+                      <a
+                        href={link.href}
+                        className="text-text-secondary hover:text-accent transition-colors duration-300 text-sm"
+                      >
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )
+          )}
         </div>
 
         <motion.div
@@ -112,7 +115,9 @@ export default function Footer() {
             </p>
 
             <div className="flex items-center space-x-6">
-              <span className="text-text-secondary text-sm">Built for accessibility</span>
+              <span className="text-text-secondary text-sm">
+                Built for accessibility
+              </span>
             </div>
           </div>
         </motion.div>

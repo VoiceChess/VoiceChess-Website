@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import Image from 'next/image';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Features', href: '#features' },
-  { name: 'Accessibility', href: '#accessibility' },
-  { name: 'Download', href: '#download' },
-  { name: 'Contact', href: '#contact' },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Features", href: "#features" },
+  { name: "Accessibility", href: "#accessibility" },
+  { name: "Download", href: "#download" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -23,17 +23,19 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg shadow-accent/5' : 'bg-primary/60 backdrop-blur-sm'
+        isScrolled
+          ? "bg-primary/95 backdrop-blur-md shadow-lg shadow-accent/5"
+          : "bg-primary/60 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,7 +47,7 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <Image
-              src="/assets/images/Logo-NoBackground.jpg"
+              src="/assets/images/Logo-NoBackground.png"
               alt="VoiceMate Chess Logo"
               width={120}
               height={40}
@@ -53,7 +55,7 @@ export default function Navbar() {
               priority
             />
             <span className="text-xl font-bold">
-              <span className="text-white">VoiceMate</span>{' '}
+              <span className="text-white">VoiceMate</span>{" "}
               <span className="text-accent">Chess</span>
             </span>
           </motion.div>
@@ -89,7 +91,7 @@ export default function Navbar() {
       <motion.div
         initial={false}
         animate={{
-          height: isMobileMenuOpen ? 'auto' : 0,
+          height: isMobileMenuOpen ? "auto" : 0,
           opacity: isMobileMenuOpen ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}

@@ -4,10 +4,28 @@ export const GooglePlayIcon = ({ className = "w-8 h-8" }: { className?: string }
   <svg
     viewBox="0 0 24 24"
     className={className}
-    fill="currentColor"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z" />
+    {/* Blue - Left triangle */}
+    <path
+      d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92z"
+      fill="#01B4FF"
+    />
+    {/* Yellow - Bottom triangle */}
+    <path
+      d="M14.682 12.893l2.302 2.302-10.937 6.333 8.635-8.635z"
+      fill="#FFBA00"
+    />
+    {/* Red - Top triangle */}
+    <path
+      d="M5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"
+      fill="#FF3E30"
+    />
+    {/* Green - Right triangle */}
+    <path
+      d="M17.881 9.707l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.675-2.293z"
+      fill="#01D159"
+    />
   </svg>
 );
 
