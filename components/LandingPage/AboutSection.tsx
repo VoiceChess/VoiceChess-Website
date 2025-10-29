@@ -77,7 +77,7 @@ export default function AboutSection() {
           <div ref={textRef} className="space-y-6">
             <div className="inline-block">
               <span className="text-accent text-sm font-semibold uppercase tracking-wider">
-                About VoiceMate Chess
+                About VoiceChess
               </span>
               <div className="h-1 w-20 bg-accent mt-2 rounded-full" />
             </div>
@@ -87,7 +87,7 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-lg text-text-secondary leading-relaxed">
-              VoiceMate Chess empowers blind players to experience the strategy,
+              VoiceChess empowers blind players to experience the strategy,
               thrill, and emotion of chess through intelligent voice guidance.
             </p>
 

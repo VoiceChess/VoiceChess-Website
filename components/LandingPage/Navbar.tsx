@@ -19,15 +19,18 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
-  // Change navbar style on scroll
+  // Change navbar style on scroll and close dropdown when scrolling
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -74,7 +77,7 @@ export default function Navbar() {
               priority
             />
             <span className="text-xl font-bold">
-              <span className="text-white">VoiceMate</span>{" "}
+              <span className="text-white">Voice</span>
               <span className="text-accent">Chess</span>
             </span>
           </motion.div>

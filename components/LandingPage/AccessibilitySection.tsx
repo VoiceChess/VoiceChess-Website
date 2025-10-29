@@ -117,7 +117,7 @@ export default function AccessibilitySection() {
 
           <p className="text-lg text-white/80 max-w-3xl mx-auto">
             We believe that everyone deserves access to the joy of chess.
-            That&apos;s why we&apos;ve built VoiceMate Chess from the ground up
+            That&apos;s why we&apos;ve built VoiceChess from the ground up
             with accessibility at its core.
           </p>
         </motion.div>
@@ -196,13 +196,13 @@ export default function AccessibilitySection() {
         >
           <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
             <p className="text-xl md:text-2xl text-white italic leading-relaxed">
-              &quot;VoiceMate Chess has transformed how I experience the game.
+              &quot;<span className="text-accent">VoiceChess</span> has transformed how I experience the game.
               For the first time, I can play independently and
               confidently.&quot;
             </p>
             <div className="mt-6">
-              <p className="text-accent font-semibold">Sarah Mitchell</p>
-              <p className="text-white/70 text-sm">Competitive Chess Player</p>
+              <p className="text-accent font-semibold">Gressia</p>
+              <p className="text-white/70 text-sm">National Blind Chess Athlete of Indonesia</p>
             </div>
           </div>
         </motion.div>

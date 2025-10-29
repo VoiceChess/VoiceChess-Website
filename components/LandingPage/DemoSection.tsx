@@ -75,7 +75,7 @@ export default function DemoSection() {
             viewport={{ once: true }}
             className="text-text-secondary mb-12"
           >
-            See VoiceMate Chess in action with real players
+            See VoiceChess in action with real players
           </motion.p>
 
           {/* YouTube Iframe */}
@@ -84,7 +84,7 @@ export default function DemoSection() {
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
                 src="https://www.youtube.com/embed/Nn2i4qokxNY"
-                title="VoiceMate Chess Demo"
+                title="VoiceChess Demo"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
@@ -97,13 +97,12 @@ export default function DemoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
           >
             {[
               { number: '99.9%', label: 'Accuracy' },
               { number: '<50ms', label: 'Response Time' },
               { number: '50+', label: 'Languages' },
-              { number: '4.9★', label: 'User Rating' },
             ].map((stat, index) => (
               <div
                 key={index}

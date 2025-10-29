@@ -92,16 +92,14 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
-              <span className="text-white">VoiceMate Chess</span>
-              <br />
-              <span className="text-accent">App Landing Page</span>
+              <span className="text-white">VoiceChess</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base md:text-lg text-white/70 leading-relaxed max-w-lg"
+              className="text-sm md:text-base text-white/70 leading-relaxed max-w-lg"
             >
               Experience chess like never before. Voice-controlled gameplay
               designed for visually impaired players with real-time audio
@@ -131,15 +129,9 @@ export default function HeroSection() {
             >
               <div>
                 <div className="text-2xl md:text-3xl font-bold text-accent">
-                  10k+
+                  1k+
                 </div>
-                <div className="text-sm text-white/60">Downloads</div>
-              </div>
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-accent">
-                  4.8★
-                </div>
-                <div className="text-sm text-white/60">Rating</div>
+                <div className="text-sm text-white/60">Users</div>
               </div>
               <div>
                 <div className="text-2xl md:text-3xl font-bold text-accent">
