@@ -117,8 +117,8 @@ export default function AccessibilitySection() {
 
           <p className="text-lg text-white/80 max-w-3xl mx-auto">
             We believe that everyone deserves access to the joy of chess.
-            That&apos;s why we&apos;ve built VoiceChess from the ground up
-            with accessibility at its core.
+            That&apos;s why we&apos;ve built VoiceChess from the ground up with
+            accessibility at its core.
           </p>
         </motion.div>
 
@@ -169,7 +169,7 @@ export default function AccessibilitySection() {
             <div className="relative w-full h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent z-10" />
               <Image
-                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=500&h=400&fit=crop"
+                src="/img/image2.jpeg"
                 alt="Accessibility technology"
                 fill
                 className="object-cover"
@@ -196,13 +196,15 @@ export default function AccessibilitySection() {
         >
           <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
             <p className="text-xl md:text-2xl text-white italic leading-relaxed">
-              &quot;<span className="text-accent">VoiceChess</span> has transformed how I experience the game.
-              For the first time, I can play independently and
-              confidently.&quot;
+              &quot;<span className="text-accent">VoiceChess</span> has
+              transformed how I experience the game. For the first time, I can
+              play independently and confidently.&quot;
             </p>
             <div className="mt-6">
               <p className="text-accent font-semibold">Gressia</p>
-              <p className="text-white/70 text-sm">National Blind Chess Athlete of Indonesia</p>
+              <p className="text-white/70 text-sm">
+                National Blind Chess Athlete of Indonesia
+              </p>
             </div>
           </div>
         </motion.div>

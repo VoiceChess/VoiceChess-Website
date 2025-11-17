@@ -63,7 +63,7 @@ export default function AboutSection() {
             <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-highlight/30 to-transparent z-10" />
               <Image
-                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&h=400&fit=crop"
+                src="/img/image4.jpeg"
                 alt="Person listening with headphones"
                 fill
                 className="object-cover"
