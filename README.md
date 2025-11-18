@@ -1,11 +1,11 @@
-# Samsung Web - Next.js Professional Website
+# VoiceChess - Next.js Professional Website
 
 Website polos yang dibangun dengan Next.js 15, TypeScript, dan Tailwind CSS dengan struktur yang rapi dan profesional.
 
 ## Struktur Project
 
 ```
-samsungweb/
+voicechess/
 ├── app/                          # Next.js App Router
 │   ├── layout.tsx               # Root layout
 │   ├── page.tsx                 # Homepage
@@ -69,11 +69,13 @@ npm start
 ## Komponen yang Tersedia
 
 ### Layout Components
+
 - **Header**: Navigation bar dengan logo dan menu
 - **Footer**: Footer dengan links dan informasi kontak
 - **Layout**: Wrapper yang menggabungkan Header dan Footer
 
 ### UI Components
+
 - **Button**: Tombol dengan berbagai variant (primary, secondary, outline) dan size (sm, md, lg)
 - **Card**: Card component dengan optional title dan hover effect
 - **Container**: Container dengan responsive max-width
@@ -88,36 +90,35 @@ Contoh:
 
 ```typescript
 // components/MyComponent/index.tsx
-import React from 'react';
+import React from "react";
 
 interface MyComponentProps {
   // ... props
 }
 
-export default function MyComponent({ }: MyComponentProps) {
-  return (
-    <div>
-      {/* ... */}
-    </div>
-  );
+export default function MyComponent({}: MyComponentProps) {
+  return <div>{/* ... */}</div>;
 }
 ```
 
 4. Import komponen di halaman atau komponen lain:
 
 ```typescript
-import MyComponent from '@/components/MyComponent';
+import MyComponent from "@/components/MyComponent";
 ```
 
 ## Customization
 
 ### Colors
+
 Edit `tailwind.config.ts` untuk mengubah color scheme.
 
 ### Fonts
+
 Edit `app/layout.tsx` untuk menambahkan custom fonts.
 
 ### Global Styles
+
 Edit `app/globals.css` untuk menambahkan global styles.
 
 ## Tech Stack
