@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FaApple, FaGooglePlay } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
+import { SiGoogleplay } from "react-icons/si";
 
 export default function DownloadSection() {
   return (
@@ -46,7 +47,7 @@ export default function DownloadSection() {
           </button>
 
           <button className="flex min-w-[260px] items-center gap-4 rounded-2xl bg-white border-b-4 border-line px-8 py-4 text-ink-900 transition-all duration-100 hover:bg-brand-yellowBg active:border-b-0 active:translate-y-1">
-            <FaGooglePlay className="h-8 w-8" aria-hidden="true" />
+            <SiGoogleplay className="h-8 w-8" aria-hidden="true" />
             <span className="text-left">
               <span className="block text-xs font-bold uppercase tracking-wide text-ink-600">
                 Get it on
