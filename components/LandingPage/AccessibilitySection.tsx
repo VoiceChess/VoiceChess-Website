@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import {
   Check,
@@ -15,187 +13,76 @@ import {
   Volume2,
 } from "lucide-react";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
 const accessibilityFeatures = [
-  {
-    icon: Volume2,
-    title: "Voice-Over Support",
-    description:
-      "Full compatibility with screen readers and voice-over technology on all platforms.",
-  },
-  {
-    icon: Vibrate,
-    title: "Haptic Feedback",
-    description:
-      "Tactile vibrations confirm moves and game events for extra clarity.",
-  },
-  {
-    icon: Eye,
-    title: "Adjustable Contrast",
-    description:
-      "High-contrast modes and color schemes for low-vision users.",
-  },
-  {
-    icon: Keyboard,
-    title: "Keyboard Navigation",
-    description:
-      "Complete keyboard support for alternative input methods.",
-  },
-  {
-    icon: Sliders,
-    title: "Customizable Audio",
-    description:
-      "Adjust voice speed, pitch, and volume to your preference.",
-  },
-  {
-    icon: Globe,
-    title: "Multilingual Support",
-    description:
-      "Available in 50+ languages with native voice feedback.",
-  },
+  { icon: Volume2, title: "screen reader ready" },
+  { icon: Vibrate, title: "haptic feedback" },
+  { icon: Eye, title: "high contrast options" },
+  { icon: Keyboard, title: "keyboard navigation" },
+  { icon: Sliders, title: "adjustable audio" },
+  { icon: Globe, title: "multilingual support" },
 ];
 
 export default function AccessibilitySection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const itemsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (itemsRef.current) {
-      const items = itemsRef.current.querySelectorAll(".accessibility-item");
-      items.forEach((item, index) => {
-        gsap.fromTo(
-          item,
-          { x: -40, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.6,
-            delay: index * 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: item,
-              start: "top center+=150",
-              toggleActions: "play none none reverse",
-            },
-          }
-        );
-      });
-    }
-  }, []);
-
   return (
-    <section
-      id="accessibility"
-      ref={sectionRef}
-      className="relative py-24 bg-sky-bg overflow-hidden"
-    >
-      <div className="absolute top-20 left-10 h-64 w-64 rounded-full bg-sky-light/40 blur-3xl" />
-      <div className="absolute bottom-20 right-10 h-64 w-64 rounded-full bg-brand-yellowLight/40 blur-3xl" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-card mb-4">
-            <span className="text-sky-dark text-sm font-extrabold uppercase tracking-wide">
-              Built for everyone
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-ink-900 mb-6 leading-tight">
-            Accessibility isn&apos;t an option —<br />
-            it&apos;s our foundation
-          </h2>
-          <p className="text-lg text-ink-700 max-w-3xl mx-auto">
-            Everyone deserves the joy of chess. That&apos;s why we built
-            VoiceChess from the ground up with accessibility at its core.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div ref={itemsRef} className="space-y-4">
-            {accessibilityFeatures.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="accessibility-item flex items-start gap-4 rounded-2xl bg-white p-5 shadow-card border border-line transition-transform duration-200 hover:-translate-y-1"
-              >
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl bg-sky-bg text-sky-dark">
-                  <feature.icon className="h-6 w-6" strokeWidth={2.4} />
-                </div>
-                <div>
-                  <h3 className="text-ink-900 font-extrabold text-lg mb-1">
-                    {feature.title}
-                  </h3>
-                  <p className="text-ink-700 text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
+    <section id="accessibility" className="relative py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative order-2 lg:order-1"
           >
-            <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-pop border-4 border-white">
+            <div className="relative w-full h-[320px] md:h-[460px] rounded-[2rem] overflow-hidden border-2 border-b-4 border-line bg-white">
               <Image
                 src="/img/image2.jpeg"
-                alt="Accessibility technology"
+                alt="Blind chess players using tactile boards"
                 fill
                 className="object-cover"
               />
             </div>
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-6 rounded-2xl bg-brand-yellow px-6 py-4 shadow-chunky font-extrabold text-ink-900"
-            >
+            <div className="absolute -bottom-5 left-6 rounded-2xl bg-brand-yellow border-b-4 border-brand-yellowDark px-5 py-3">
               <div className="flex items-center gap-2">
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-ink-900">
-                  <Check className="h-4 w-4 text-brand-yellow" strokeWidth={3} />
+                <span className="grid h-7 w-7 place-items-center rounded-full bg-white">
+                  <Check className="h-4 w-4 text-brand-yellowDark" strokeWidth={3.5} />
                 </span>
-                <span className="text-2xl font-extrabold">WCAG 2.1</span>
+                <span className="text-base md:text-lg font-black text-white whitespace-nowrap">
+                  WCAG 2.1 AA
+                </span>
               </div>
-              <div className="text-sm mt-1">AA Compliant</div>
-            </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="order-1 lg:order-2 text-center lg:text-left"
+          >
+            <h2 className="text-4xl md:text-5xl font-black text-ink-800 leading-[1.02] tracking-[-0.04em] mb-5">
+              accessible from the first move.
+            </h2>
+            <p className="text-lg md:text-xl text-ink-700 font-extrabold leading-8 mb-8">
+              VoiceChess is designed for blind players first, with audio,
+              touch, contrast, and navigation choices built into the experience.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {accessibilityFeatures.map((feature, index) => (
+                <div key={index} className="card-duo flex items-center gap-3 p-4 bg-white text-left">
+                  <div className="grid min-h-[44px] min-w-[44px] place-items-center rounded-xl bg-brand-yellow text-white">
+                    <feature.icon className="h-5 w-5" strokeWidth={2.7} />
+                  </div>
+                  <span className="font-black text-ink-800 capitalize">
+                    {feature.title}
+                  </span>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <div className="max-w-3xl mx-auto rounded-3xl bg-white p-8 shadow-pop border border-line">
-            <p className="text-xl md:text-2xl text-ink-900 italic leading-relaxed">
-              &quot;<span className="text-brand-yellowDark font-bold">VoiceChess</span>{" "}
-              has transformed how I experience the game. For the first time, I
-              can play independently and confidently.&quot;
-            </p>
-            <div className="mt-6">
-              <p className="text-brand-yellowDark font-extrabold">Gressia</p>
-              <p className="text-ink-600 text-sm">
-                National Blind Chess Athlete of Indonesia
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

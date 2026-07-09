@@ -1,146 +1,88 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { Heart, Mic, Users } from "lucide-react";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
 const items = [
   {
-    icon: Heart,
-    title: "Inclusive Design",
-    description: "Built from the ground up with accessibility in mind.",
-    tint: "bg-danger-bg text-danger",
+    icon: Mic,
+    title: "Voice-first controls",
+    description: "Players can hear the board and make moves without relying on sight.",
   },
   {
-    icon: Mic,
-    title: "Smart Recognition",
-    description: "Advanced voice recognition for seamless, hands-free play.",
-    tint: "bg-brand-yellowBg text-brand-yellowDark",
+    icon: Heart,
+    title: "Made for accessibility",
+    description:
+      "Readable contrast, clear labels, audio guidance, and simple flows from the start.",
   },
   {
     icon: Users,
-    title: "Community Driven",
-    description: "Developed with input from blind chess players worldwide.",
-    tint: "bg-sky-bg text-sky-dark",
+    title: "Built with players",
+    description:
+      "Shaped by real needs from blind and visually impaired chess players.",
   },
 ];
 
 export default function AboutSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (textRef.current && imageRef.current) {
-      gsap.fromTo(
-        imageRef.current,
-        { x: -80, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top center+=100",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-      gsap.fromTo(
-        textRef.current,
-        { x: 80, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top center+=100",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }
-  }, []);
-
   return (
-    <section
-      id="about"
-      ref={sectionRef}
-      className="relative py-24 bg-white overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div ref={imageRef} className="relative">
-            <div className="relative w-full h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-pop border-4 border-white">
-              <Image
-                src="/img/image4.jpeg"
-                alt="Person listening with headphones"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="absolute -bottom-6 -right-6 h-28 w-28 rounded-full bg-brand-yellowLight/50 blur-2xl" />
-            <div className="absolute -top-6 -left-6 h-24 w-24 rounded-full bg-sky-light/40 blur-2xl" />
-            <span
-              aria-hidden="true"
-              className="absolute -top-4 right-8 text-4xl animate-wiggle"
+    <section id="about" className="relative py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-black text-brand-yellowDark leading-[1.02] tracking-[-0.04em]">
+            Chess should be playable by everyone.
+          </h2>
+          <p className="mt-5 text-lg md:text-xl text-ink-700 font-extrabold leading-8">
+            VoiceChess turns every move into clear audio guidance, so blind and
+            visually impaired players can play, learn, and improve with confidence.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="mt-14"
+        >
+          <div className="relative mx-auto w-full max-w-5xl h-[320px] md:h-[520px] rounded-[2rem] overflow-hidden border-2 border-b-4 border-line bg-white">
+            <Image
+              src="/img/image4.jpeg"
+              alt="Players using VoiceChess together"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </motion.div>
+
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+          {items.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              viewport={{ once: true }}
+              className="card-duo p-6 bg-white"
             >
-              ♟️
-            </span>
-          </div>
-
-          <div ref={textRef} className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-brand-yellowBg px-4 py-2">
-              <span className="text-brand-yellowDark text-sm font-extrabold uppercase tracking-wide">
-                About VoiceChess
-              </span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-extrabold text-ink-900 leading-tight">
-              Empowering blind players through voice
-            </h2>
-
-            <p className="text-lg text-ink-700 leading-relaxed">
-              VoiceChess lets blind players experience the strategy, thrill, and
-              emotion of chess through intelligent voice guidance.
-            </p>
-            <p className="text-lg text-ink-700 leading-relaxed">
-              Our technology bridges accessibility and competitive gaming, so
-              everyone can enjoy the timeless game regardless of visual ability.
-            </p>
-
-            <div className="space-y-4 pt-2">
-              {items.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-card border border-line transition-transform duration-200 hover:-translate-y-1"
-                >
-                  <div
-                    className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl ${item.tint}`}
-                  >
-                    <item.icon className="h-6 w-6" strokeWidth={2.4} />
-                  </div>
-                  <div>
-                    <h3 className="text-ink-900 font-extrabold text-lg">
-                      {item.title}
-                    </h3>
-                    <p className="text-ink-700 text-sm mt-1">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+              <div className="grid min-h-[56px] min-w-[56px] w-14 place-items-center rounded-2xl bg-brand-yellow text-white mb-5">
+                <item.icon className="h-7 w-7" strokeWidth={2.7} />
+              </div>
+              <h3 className="text-ink-800 font-black text-xl mb-2">
+                {item.title}
+              </h3>
+              <p className="text-ink-600 font-semibold leading-relaxed">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

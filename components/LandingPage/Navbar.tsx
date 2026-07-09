@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -15,13 +14,11 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
       if (isMobileMenuOpen) setIsMobileMenuOpen(false);
     };
     window.addEventListener("scroll", handleScroll);
@@ -43,64 +40,49 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   return (
-    <motion.nav
+    <nav
       ref={navRef}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-card"
-          : "bg-white/70 backdrop-blur-sm"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white border-b-2 border-line"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center gap-2"
-          >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-[70px]">
+          <a href="#home" className="flex items-center gap-2">
             <Image
               src="/logos/Logo-NoBackground.png"
               alt="VoiceChess Logo"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
+              width={110}
+              height={36}
+              className="h-9 w-auto"
               priority
             />
-            <span className="text-xl font-extrabold tracking-tight">
+            <span className="text-xl font-black tracking-tight">
               <span className="text-ink-900">Voice</span>
               <span className="text-brand-yellowDark">Chess</span>
             </span>
-          </motion.div>
+          </a>
 
-          <div className="hidden md:flex items-center gap-1">
-            {navItems.map((item, index) => (
-              <motion.a
+          <div className="hidden lg:flex items-center gap-1">
+            {navItems.map((item) => (
+              <a
                 key={item.name}
                 href={item.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 * index }}
-                className="rounded-full px-4 py-2 text-sm font-bold text-ink-700 hover:text-ink-900 hover:bg-brand-yellowBg transition-colors duration-200"
+                className="rounded-xl px-4 py-2 text-sm font-extrabold uppercase tracking-wide text-ink-600 hover:text-brand-yellowDark hover:bg-brand-yellowBg transition-colors duration-150"
               >
                 {item.name}
-              </motion.a>
+              </a>
             ))}
-            <a
-              href="#download"
-              className="ml-2 rounded-2xl bg-brand-yellow px-5 py-2.5 text-sm font-extrabold text-ink-900 shadow-chunky-sm transition-all duration-150 hover:bg-brand-yellowDark hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none"
-            >
+          </div>
+
+          <div className="hidden lg:block">
+            <a href="#download" className="btn-duo-yellow">
               Get the App
             </a>
           </div>
 
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-yellowBg text-ink-900 transition-colors hover:bg-brand-yellowLight"
+              className="flex h-11 w-11 items-center justify-center rounded-xl border-2 border-line text-ink-700 hover:bg-brand-yellowBg transition-colors"
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -110,35 +92,29 @@ export default function Navbar() {
         </div>
       </div>
 
-      <motion.div
-        initial={false}
-        animate={{
-          height: isMobileMenuOpen ? "auto" : 0,
-          opacity: isMobileMenuOpen ? 1 : 0,
-        }}
-        transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md border-t border-line"
-      >
-        <div className="px-4 py-5 space-y-1">
-          {navItems.map((item) => (
+      {isMobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t-2 border-line">
+          <div className="px-4 py-4 space-y-1">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block rounded-xl px-4 py-3 text-base font-extrabold uppercase tracking-wide text-ink-600 hover:text-brand-yellowDark hover:bg-brand-yellowBg transition-colors duration-150"
+              >
+                {item.name}
+              </a>
+            ))}
             <a
-              key={item.name}
-              href={item.href}
+              href="#download"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block rounded-2xl px-4 py-3 text-base font-bold text-ink-700 hover:text-ink-900 hover:bg-brand-yellowBg transition-colors duration-200"
+              className="btn-duo-yellow w-full mt-2"
             >
-              {item.name}
+              Get the App
             </a>
-          ))}
-          <a
-            href="#download"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="block rounded-2xl bg-brand-yellow px-4 py-3 text-center text-base font-extrabold text-ink-900 shadow-chunky-sm"
-          >
-            Get the App
-          </a>
+          </div>
         </div>
-      </motion.div>
-    </motion.nav>
+      )}
+    </nav>
   );
 }
