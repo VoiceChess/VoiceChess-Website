@@ -10,99 +10,96 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Duolingo-style warm palette (matches mobile wcagColors.ts)
+        brand: {
+          yellow: "#F5A623",
+          yellowLight: "#FFC857",
+          yellowDark: "#E68A00",
+          yellowBg: "#FFF8E7",
+        },
+        sky: {
+          DEFAULT: "#4A90E2",
+          light: "#7FB3F0",
+          dark: "#2E5C8A",
+          bg: "#E8F4FD",
+        },
+        ink: {
+          900: "#212121",
+          800: "#424242",
+          700: "#616161",
+          600: "#757575",
+        },
+        line: "#EEEEEE",
+        // Semantic (WCAG AA)
         primary: {
-          DEFAULT: "#0F172A",
-          foreground: "#F8FAFC",
+          DEFAULT: "#F5A623",
+          foreground: "#212121",
+          hover: "#E68A00",
         },
         secondary: {
-          DEFAULT: "#F8FAFC",
-          foreground: "#0F172A",
+          DEFAULT: "#4A90E2",
+          foreground: "#FFFFFF",
         },
         accent: {
-          DEFAULT: "#D4AF37",
-          foreground: "#0F172A",
-          hover: "#B8941F",
-        },
-        highlight: {
-          DEFAULT: "#334155",
-          foreground: "#F8FAFC",
+          DEFAULT: "#F5A623",
+          foreground: "#212121",
+          hover: "#E68A00",
         },
         surface: {
-          DEFAULT: "#1E293B",
-          light: "#334155",
+          DEFAULT: "#FFFFFF",
+          light: "#FFF8E7",
         },
         text: {
-          primary: "#F8FAFC",
-          secondary: "#CBD5E1",
+          primary: "#212121",
+          secondary: "#616161",
         },
+        success: { DEFAULT: "#059669", bg: "#D1FAE5" },
+        danger: { DEFAULT: "#DC2626", bg: "#FEE2E2" },
+        info: { DEFAULT: "#2563EB", bg: "#DBEAFE" },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
-        },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "1rem",
+        xl: "1.5rem",
+        "2xl": "2rem",
+        "3xl": "2.5rem",
+      },
+      boxShadow: {
+        // Chunky Duolingo-style hard drop shadows
+        chunky: "0 6px 0 0 rgba(230, 138, 0, 0.35)",
+        "chunky-blue": "0 6px 0 0 rgba(46, 92, 138, 0.35)",
+        "chunky-sm": "0 4px 0 0 rgba(230, 138, 0, 0.30)",
+        card: "0 10px 24px -6px rgba(230, 138, 0, 0.20)",
+        "card-blue": "0 10px 24px -6px rgba(46, 92, 138, 0.20)",
+        pop: "0 12px 32px -8px rgba(33, 33, 33, 0.18)",
       },
       keyframes: {
         "fade-in-up": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(20px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in": {
-          "0%": {
-            opacity: "0",
-          },
-          "100%": {
-            opacity: "1",
-          },
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
-        "slide-in-right": {
-          "0%": {
-            transform: "translateX(100px)",
-            opacity: "0",
-          },
-          "100%": {
-            transform: "translateX(0)",
-            opacity: "1",
-          },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-4deg)" },
+          "50%": { transform: "rotate(4deg)" },
         },
       },
       animation: {
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "fade-in": "fade-in 0.6s ease-out",
-        "slide-in-right": "slide-in-right 0.8s ease-out",
+        float: "float 4s ease-in-out infinite",
+        wiggle: "wiggle 2.5s ease-in-out infinite",
       },
     },
   },

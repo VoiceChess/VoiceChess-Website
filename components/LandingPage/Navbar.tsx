@@ -19,20 +19,15 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
 
-  // Change navbar style on scroll and close dropdown when scrolling
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      if (isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
-      }
+      if (isMobileMenuOpen) setIsMobileMenuOpen(false);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobileMenuOpen]);
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -43,7 +38,6 @@ export default function Navbar() {
         setIsMobileMenuOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isMobileMenuOpen]);
@@ -56,8 +50,8 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-primary/95 backdrop-blur-md shadow-lg shadow-accent/5"
-          : "bg-primary/60 backdrop-blur-sm"
+          ? "bg-white/90 backdrop-blur-md shadow-card"
+          : "bg-white/70 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,23 +60,23 @@ export default function Navbar() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-2"
           >
             <Image
               src="/logos/Logo-NoBackground.png"
-              alt="VoiceMate Chess Logo"
+              alt="VoiceChess Logo"
               width={120}
               height={40}
               className="h-10 w-auto"
               priority
             />
-            <span className="text-xl font-bold">
-              <span className="text-white">Voice</span>
-              <span className="text-accent">Chess</span>
+            <span className="text-xl font-extrabold tracking-tight">
+              <span className="text-ink-900">Voice</span>
+              <span className="text-brand-yellowDark">Chess</span>
             </span>
           </motion.div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
@@ -90,19 +84,25 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
-                className="relative text-white/80 hover:text-white text-sm font-medium transition-colors duration-300 group"
+                className="rounded-full px-4 py-2 text-sm font-bold text-ink-700 hover:text-ink-900 hover:bg-brand-yellowBg transition-colors duration-200"
               >
                 {item.name}
-                <motion.span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
               </motion.a>
             ))}
+            <a
+              href="#download"
+              className="ml-2 rounded-2xl bg-brand-yellow px-5 py-2.5 text-sm font-extrabold text-ink-900 shadow-chunky-sm transition-all duration-150 hover:bg-brand-yellowDark hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-none"
+            >
+              Get the App
+            </a>
           </div>
 
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-accent transition-colors duration-300"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-yellowBg text-ink-900 transition-colors hover:bg-brand-yellowLight"
               aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -117,19 +117,26 @@ export default function Navbar() {
           opacity: isMobileMenuOpen ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden bg-primary/95 backdrop-blur-md"
+        className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md border-t border-line"
       >
-        <div className="px-4 py-6 space-y-4">
+        <div className="px-4 py-5 space-y-1">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-white/80 hover:text-accent text-base font-medium transition-colors duration-300"
+              className="block rounded-2xl px-4 py-3 text-base font-bold text-ink-700 hover:text-ink-900 hover:bg-brand-yellowBg transition-colors duration-200"
             >
               {item.name}
             </a>
           ))}
+          <a
+            href="#download"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="block rounded-2xl bg-brand-yellow px-4 py-3 text-center text-base font-extrabold text-ink-900 shadow-chunky-sm"
+          >
+            Get the App
+          </a>
         </div>
       </motion.div>
     </motion.nav>

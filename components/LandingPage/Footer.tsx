@@ -34,29 +34,8 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer id="contact" className="relative bg-primary overflow-hidden">
-      <div className="h-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
-
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage:
-              "linear-gradient(#D4AF37 1px, transparent 1px), linear-gradient(90deg, #D4AF37 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-      </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-20 w-32 h-32 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-40 left-20 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
-
-      {/* Floating dots */}
-      <div className="absolute top-32 left-1/4 w-2 h-2 bg-accent/30 rounded-full" />
-      <div className="absolute top-48 right-1/3 w-3 h-3 bg-accent/20 rounded-full" />
-      <div className="absolute bottom-32 right-1/4 w-2 h-2 bg-accent/40 rounded-full" />
+    <footer id="contact" className="relative bg-brand-yellowBg overflow-hidden">
+      <div className="h-1.5 bg-gradient-to-r from-brand-yellow via-sky to-brand-yellow" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-6 gap-8 md:gap-12 mb-12">
@@ -67,7 +46,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="col-span-2 lg:col-span-2"
           >
-            <div className="mb-4">
+            <div className="mb-4 flex items-center gap-2">
               <Image
                 src="/logos/Logo-NoBackground.png"
                 alt="VoiceChess Logo"
@@ -75,52 +54,53 @@ export default function Footer() {
                 height={50}
                 className="h-12 w-auto"
               />
+              <span className="text-xl font-extrabold">
+                <span className="text-ink-900">Voice</span>
+                <span className="text-brand-yellowDark">Chess</span>
+              </span>
             </div>
-            <p className="text-text-secondary leading-relaxed mb-6">
+            <p className="text-ink-700 leading-relaxed mb-6 max-w-sm">
               Making strategy audible. The first accessible chess app designed
               specifically for blind and visually impaired players.
             </p>
-
-            <div className="flex space-x-4">
+            <div className="flex gap-3">
               <a
                 href="https://www.instagram.com/voicechess.app?igsh=bDlycnZtZWVtMWtr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-10 h-10 bg-surface-light rounded-full flex items-center justify-center text-text-secondary hover:text-accent hover:bg-surface transition-all duration-300"
+                className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-ink-700 shadow-card transition-all duration-200 hover:text-brand-yellowDark hover:-translate-y-1"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="h-5 w-5" />
               </a>
             </div>
           </motion.div>
 
-          {Object.entries(footerLinks).map(
-            ([category, links], categoryIndex) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 * (categoryIndex + 1) }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-text-primary font-semibold text-lg mb-4 capitalize">
-                  {category}
-                </h3>
-                <ul className="space-y-3">
-                  {links.map((link, index) => (
-                    <li key={index}>
-                      <a
-                        href={link.href}
-                        className="text-text-secondary hover:text-accent transition-colors duration-300 text-sm"
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            )
-          )}
+          {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
+            <motion.div
+              key={category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 * (categoryIndex + 1) }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-ink-900 font-extrabold text-lg mb-4 capitalize">
+                {category}
+              </h3>
+              <ul className="space-y-3">
+                {links.map((link, index) => (
+                  <li key={index}>
+                    <a
+                      href={link.href}
+                      className="text-ink-700 hover:text-brand-yellowDark transition-colors duration-200 text-sm font-semibold"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
         </div>
 
         <motion.div
@@ -128,23 +108,18 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
-          className="pt-8 border-t border-surface"
+          className="pt-8 border-t border-line"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-text-secondary text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-ink-600 text-sm font-medium">
               © 2025 VoiceChess. All rights reserved.
             </p>
-
-            <div className="flex items-center space-x-6">
-              <span className="text-text-secondary text-sm">
-                Built for accessibility
-              </span>
-            </div>
+            <span className="text-ink-600 text-sm font-medium">
+              Built for accessibility ♿
+            </span>
           </div>
         </motion.div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
     </footer>
   );
 }

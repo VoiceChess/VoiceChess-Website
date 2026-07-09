@@ -3,120 +3,92 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Mic, Sparkles } from "lucide-react";
+
+const floaties = [
+  { emoji: "♟️", className: "top-24 left-[8%]", delay: "0s" },
+  { emoji: "♞", className: "top-40 right-[10%]", delay: "0.6s" },
+  { emoji: "🎧", className: "bottom-40 left-[12%]", delay: "1.2s" },
+  { emoji: "♛", className: "bottom-24 right-[16%]", delay: "0.9s" },
+];
 
 export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-[#1a2332] to-[#0a0f1a]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-brand-yellowBg via-white to-sky-bg/40 pt-20"
     >
-      {/* Large Organic Shape - Right Side - DESKTOP ONLY */}
-      <div className="hidden lg:block absolute top-0 -right-32 w-[70%] h-full rotate-180">
-        <svg
-          viewBox="0 0 800 900"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="absolute right-0 top-0 w-full h-full"
-          preserveAspectRatio="xMaxYMin slice"
+      {/* Soft color blobs */}
+      <div className="absolute -top-20 -left-24 h-96 w-96 rounded-full bg-brand-yellowLight/40 blur-3xl" />
+      <div className="absolute -bottom-24 -right-16 h-[28rem] w-[28rem] rounded-full bg-sky-light/30 blur-3xl" />
+
+      {/* Floating fun icons */}
+      {floaties.map((f, i) => (
+        <span
+          key={i}
+          aria-hidden="true"
+          className={`pointer-events-none absolute hidden text-4xl md:text-5xl opacity-80 animate-float lg:block ${f.className}`}
+          style={{ animationDelay: f.delay }}
         >
-          <path
-            d="M800 0C800 0 750 150 650 250C550 350 400 400 350 500C300 600 320 750 250 850C180 950 0 900 0 900V0H800Z"
-            fill="url(#gradient1)"
-            opacity="0.6"
-          />
-          <defs>
-            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#B8941F" stopOpacity="0.2" />
-              <stop offset="100%" stopColor="#D4AF37" stopOpacity="0.15" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+          {f.emoji}
+        </span>
+      ))}
 
-      {/* Decorative Geometric Elements - DESKTOP ONLY */}
-      <div className="hidden lg:block absolute top-20 left-16 w-20 h-20 border-4 border-accent/20 rounded-lg rotate-45 animate-pulse" />
-      <div className="hidden lg:block absolute top-40 left-32 w-12 h-12 bg-accent/10 rounded-full blur-xl" />
-      <div className="hidden lg:block absolute bottom-40 left-20 w-16 h-16 border-4 border-accent/30 rotate-12" />
-
-      {/* Floating accent dots - DESKTOP ONLY */}
-      <div
-        className="hidden lg:block absolute top-32 right-1/4 w-3 h-3 bg-accent rounded-full animate-bounce"
-        style={{ animationDelay: "0s", animationDuration: "3s" }}
-      />
-      <div
-        className="hidden lg:block absolute top-48 right-1/3 w-2 h-2 bg-accent/60 rounded-full animate-bounce"
-        style={{ animationDelay: "1s", animationDuration: "4s" }}
-      />
-      <div
-        className="hidden lg:block absolute bottom-32 right-1/4 w-4 h-4 bg-accent/40 rounded-full animate-bounce"
-        style={{ animationDelay: "2s", animationDuration: "3.5s" }}
-      />
-
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage:
-              "linear-gradient(#D4AF37 1px, transparent 1px), linear-gradient(90deg, #D4AF37 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-      </div>
-
-      {/* Mobile Background Phone Mockup - Partial Visible on Right */}
-      <div className="lg:hidden absolute right-0 top-80 overflow-visible z-0">
-        <motion.div
-          initial={{ opacity: 0, x: 50, rotateZ: -12 }}
-          animate={{ opacity: 0.25, x: 100, rotateZ: -12 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative w-[260px] h-[520px]"
-        >
-          <Image
-            src="/mockups/mockup1.png"
-            alt="VoiceMate Chess App Background"
-            fill
-            className="object-cover"
-          />
-        </motion.div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6 lg:pr-8 relative z-20">
+          <div className="space-y-6 lg:pr-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-card border border-brand-yellowLight"
+            >
+              <Sparkles className="h-4 w-4 text-brand-yellowDark" />
+              <span className="text-sm font-bold text-ink-800">
+                Chess you can hear & play by voice
+              </span>
+            </motion.div>
+
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-ink-900"
             >
-              <span className="text-white">VoiceChess</span>
+              Play chess with your{" "}
+              <span className="text-brand-yellowDark">voice</span>.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm md:text-base text-white/70 leading-relaxed max-w-lg"
+              className="text-base md:text-lg text-ink-700 leading-relaxed max-w-lg"
             >
-              Experience chess like never before. Voice-controlled gameplay
-              designed for visually impaired players with real-time audio
-              feedback and intelligent assistance.
+              Voice-controlled gameplay designed for visually impaired players,
+              with real-time audio feedback and a friendly AI coach that makes
+              every move accessible.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 pt-2"
             >
               <a
                 href="#download"
-                className="inline-block px-8 py-3.5 bg-accent text-primary rounded-full font-semibold text-base transition-all duration-300 hover:bg-accent-hover hover:shadow-xl hover:shadow-accent/30 hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-2xl bg-brand-yellow px-8 py-4 text-base font-extrabold text-ink-900 shadow-chunky transition-all duration-150 hover:bg-brand-yellowDark hover:-translate-y-0.5 active:translate-y-1 active:shadow-none"
               >
+                <Mic className="h-5 w-5" />
                 Get Started
+              </a>
+              <a
+                href="#features"
+                className="inline-flex items-center rounded-2xl bg-white px-8 py-4 text-base font-extrabold text-ink-900 shadow-card border-2 border-line transition-all duration-150 hover:border-sky hover:-translate-y-0.5"
+              >
+                See Features
               </a>
             </motion.div>
 
@@ -125,91 +97,93 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex gap-8 pt-6"
+              className="flex gap-4 pt-6"
             >
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-accent">
+              <div className="rounded-2xl bg-white px-5 py-3 shadow-card border border-line">
+                <div className="text-2xl md:text-3xl font-extrabold text-brand-yellowDark">
                   1k+
                 </div>
-                <div className="text-sm text-white/60">Users</div>
+                <div className="text-sm font-semibold text-ink-600">
+                  Happy players
+                </div>
               </div>
-              <div>
-                <div className="text-2xl md:text-3xl font-bold text-accent">
+              <div className="rounded-2xl bg-white px-5 py-3 shadow-card-blue border border-line">
+                <div className="text-2xl md:text-3xl font-extrabold text-sky-dark">
                   100%
                 </div>
-                <div className="text-sm text-white/60">Accessible</div>
+                <div className="text-sm font-semibold text-ink-600">
+                  Accessible
+                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Right - Phone Mockups with Real Images */}
-          <div className="relative h-[550px] w-full hidden lg:block">
-            <div className="absolute inset-0 flex left-40 top-40 items-center justify-center gap-6 translate-x-8 translate-y-16">
-              {/* Phone 1 - Left Back */}
+          {/* Right - Phone Mockups */}
+          <div className="relative h-[560px] w-full hidden lg:block">
+            <div className="absolute inset-0 flex items-center justify-center gap-4">
+              {/* Glow */}
+              <div className="absolute h-72 w-72 rounded-full bg-brand-yellowLight/50 blur-3xl" />
+
               <motion.div
-                initial={{ opacity: 0, x: -50, y: 40, rotateZ: -12 }}
-                animate={{ opacity: 1, x: 0, y: 0, rotateZ: -12 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.3,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
+                initial={{ opacity: 0, x: -50, y: 40, rotate: -10 }}
+                animate={{ opacity: 1, x: 0, y: 0, rotate: -10 }}
+                transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 className="z-10"
               >
-                <div className="relative w-56 h-[500px] overflow-hidden shadow-lg">
+                <div className="relative w-52 h-[460px] overflow-hidden rounded-[2rem] bg-white shadow-pop border-4 border-white">
                   <Image
                     src="/mockups/mockup1.png"
-                    alt="VoiceMate Chess App Screen"
+                    alt="VoiceChess app screen"
                     fill
                     className="object-cover"
                   />
                 </div>
               </motion.div>
 
-              {/* Phone 2 - Center Middle */}
               <motion.div
-                initial={{ opacity: 0, y: 40, rotateZ: -12 }}
-                animate={{ opacity: 1, y: 0, rotateZ: -12 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.5,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="z-20"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="z-30 -mx-6"
               >
-                <div className="relative w-56 h-[500px] overflow-hidden shadow-xl">
+                <div className="relative w-56 h-[500px] overflow-hidden rounded-[2.25rem] bg-white shadow-pop border-4 border-white">
                   <Image
                     src="/mockups/mockup2.png"
-                    alt="VoiceMate Chess App Main Screen"
+                    alt="VoiceChess main screen"
                     fill
                     className="object-cover"
                   />
                 </div>
               </motion.div>
 
-              {/* Phone 3 - Right Front (half visible) */}
               <motion.div
-                initial={{ opacity: 0, x: 50, y: 40, rotateZ: -12 }}
-                animate={{ opacity: 1, x: 0, y: 0, rotateZ: -12 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.4,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="z-30"
+                initial={{ opacity: 0, x: 50, y: 40, rotate: 10 }}
+                animate={{ opacity: 1, x: 0, y: 0, rotate: 10 }}
+                transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="z-20"
               >
-                <div className="relative w-56 h-[500px] overflow-hidden shadow-lg">
+                <div className="relative w-52 h-[460px] overflow-hidden rounded-[2rem] bg-white shadow-pop border-4 border-white">
                   <Image
                     src="/mockups/mockup3.png"
-                    alt="VoiceMate Chess App Screen"
+                    alt="VoiceChess app screen"
                     fill
                     className="object-cover"
                   />
                 </div>
               </motion.div>
+            </div>
+          </div>
 
-              {/* Glow effect behind center phone */}
-              <div className="absolute w-64 h-64 bg-accent/20 rounded-full blur-3xl z-0" />
+          {/* Mobile mockup */}
+          <div className="lg:hidden relative mx-auto mt-4 h-[420px] w-[220px]">
+            <div className="absolute inset-0 rounded-full bg-brand-yellowLight/40 blur-2xl" />
+            <div className="relative h-full w-full overflow-hidden rounded-[2rem] bg-white shadow-pop border-4 border-white">
+              <Image
+                src="/mockups/mockup2.png"
+                alt="VoiceChess main screen"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

@@ -80,7 +80,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#0F172A" />
+        <meta name="theme-color" content="#F5A623" />
         <link rel="canonical" href="https://voicematechess.com" />
         <StructuredData />
       </head>

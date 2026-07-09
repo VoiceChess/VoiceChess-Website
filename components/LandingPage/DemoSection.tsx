@@ -1,31 +1,24 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const stats = [
+  { number: "99.9%", label: "Accuracy", tint: "text-success" },
+  { number: "<50ms", label: "Response time", tint: "text-brand-yellowDark" },
+  { number: "50+", label: "Languages", tint: "text-sky-dark" },
+];
+
 export default function DemoSection() {
-  const bgRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (bgRef.current) {
-      gsap.to(bgRef.current, {
-        y: -80,
-        scrollTrigger: {
-          trigger: bgRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.5,
-        },
-      });
-    }
-
     if (contentRef.current) {
       gsap.fromTo(
         contentRef.current,
@@ -34,11 +27,11 @@ export default function DemoSection() {
           scale: 1,
           opacity: 1,
           duration: 1,
-          ease: 'power3.out',
+          ease: "power3.out",
           scrollTrigger: {
             trigger: contentRef.current,
-            start: 'top center+=100',
-            toggleActions: 'play none none reverse',
+            start: "top center+=100",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -46,9 +39,7 @@ export default function DemoSection() {
   }, []);
 
   return (
-    <section className="relative py-24 overflow-hidden bg-surface">
-      <div ref={bgRef} className="absolute inset-0 bg-gradient-to-b from-primary/50 to-surface" />
-
+    <section className="relative py-24 overflow-hidden bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={contentRef}
@@ -58,29 +49,15 @@ export default function DemoSection() {
           viewport={{ once: true }}
           className="text-center"
         >
-          {/* Title */}
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-text-primary mb-4"
-          >
-            Watch How It Works
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true }}
-            className="text-text-secondary mb-12"
-          >
-            See VoiceChess in action with real players
-          </motion.p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-ink-900 mb-4">
+            Watch how it works
+          </h2>
+          <p className="text-ink-700 mb-12 text-lg">
+            See VoiceChess in action with real players.
+          </p>
 
-          {/* YouTube Iframe */}
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl backdrop-blur-md bg-surface-light/50 border border-accent/20">
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+          <div className="relative rounded-3xl overflow-hidden shadow-pop border-4 border-white bg-brand-yellowBg">
+            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
               <iframe
                 className="absolute top-0 left-0 w-full h-full"
                 src="https://www.youtube.com/embed/Nn2i4qokxNY"
@@ -91,25 +68,24 @@ export default function DemoSection() {
             </div>
           </div>
 
-          {/* Stats Below Video */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12"
+            className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-12"
           >
-            {[
-              { number: '99.9%', label: 'Accuracy' },
-              { number: '<50ms', label: 'Response Time' },
-              { number: '50+', label: 'Languages' },
-            ].map((stat, index) => (
+            {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-surface-light/50 backdrop-blur-sm rounded-xl p-6 border border-accent/10"
+                className="rounded-2xl bg-white p-6 shadow-card border border-line"
               >
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-2">{stat.number}</div>
-                <div className="text-sm text-text-secondary">{stat.label}</div>
+                <div className={`text-3xl md:text-4xl font-extrabold mb-1 ${stat.tint}`}>
+                  {stat.number}
+                </div>
+                <div className="text-sm font-semibold text-ink-600">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </motion.div>
