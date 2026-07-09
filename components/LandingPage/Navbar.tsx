@@ -6,11 +6,7 @@ import Image from "next/image";
 
 const navItems = [
   { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
   { name: "Features", href: "#features" },
-  { name: "Accessibility", href: "#accessibility" },
-  { name: "Download", href: "#download" },
-  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -45,7 +41,7 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b-2 border-line"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-[70px]">
+        <div className="flex items-center h-[70px]">
           <a href="#home" className="flex items-center gap-2">
             <Image
               src="/logos/Logo-NoBackground.png"
@@ -61,7 +57,7 @@ export default function Navbar() {
             </span>
           </a>
 
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 ml-auto mr-4">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -79,7 +75,7 @@ export default function Navbar() {
             </a>
           </div>
 
-          <div className="lg:hidden">
+          <div className="lg:hidden ml-auto">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="flex h-11 w-11 items-center justify-center rounded-xl border-2 border-line text-ink-700 hover:bg-brand-yellowBg transition-colors"
