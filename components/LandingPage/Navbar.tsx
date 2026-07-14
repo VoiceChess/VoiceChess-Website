@@ -70,8 +70,8 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:block">
-            <a href="#download" className="btn-duo-yellow">
-              Get the App
+            <a href="/download" className="btn-duo-yellow">
+              Download APK
             </a>
           </div>
 
@@ -102,11 +102,11 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#download"
+              href="/download"
               onClick={() => setIsMobileMenuOpen(false)}
               className="btn-duo-yellow w-full mt-2"
             >
-              Get the App
+              Download APK
             </a>
           </div>
         </div>

@@ -61,8 +61,8 @@ export default function HeroSection() {
               one simple chess app.
             </p>
             <div className="mt-8 grid gap-3 sm:flex sm:justify-center lg:justify-start">
-              <a href="#download" className="btn-duo-yellow min-w-[220px] py-4 text-base">
-                Get Started
+              <a href="/download" className="btn-duo-yellow min-w-[220px] py-4 text-base">
+                Download Latest APK
               </a>
               <a href="#features" className="btn-duo-white min-w-[220px] py-4 text-base">
                 See How It Works

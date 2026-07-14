@@ -25,8 +25,8 @@ export default function NotFound() {
           <Link href="/" className="btn-duo-yellow py-4 px-8 text-base">
             Back to Home
           </Link>
-          <Link href="/#download" className="btn-duo-white py-4 px-8 text-base">
-            Download App
+          <Link href="/download" className="btn-duo-white py-4 px-8 text-base">
+            Download APK
           </Link>
         </div>
       </div>

@@ -2,8 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FaApple } from "react-icons/fa";
-import { SiGoogleplay } from "react-icons/si";
+import { FaAndroid, FaGithub } from "react-icons/fa";
 
 export default function DownloadSection() {
   return (
@@ -25,8 +24,8 @@ export default function DownloadSection() {
           viewport={{ once: true }}
           className="mx-auto mt-5 max-w-2xl text-lg md:text-xl font-extrabold text-white"
         >
-          VoiceChess is coming soon to mobile. Get ready to scan, speak, and
-          play from wherever you are.
+          Download the newest VoiceChess Android build. The link automatically
+          resolves the latest APK published on GitHub Releases.
         </motion.p>
 
         <motion.div
@@ -36,25 +35,33 @@ export default function DownloadSection() {
           viewport={{ once: true }}
           className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <button className="flex min-w-[260px] items-center gap-4 rounded-2xl bg-white border-b-4 border-line px-8 py-4 text-ink-900 transition-all duration-100 hover:bg-brand-yellowBg active:border-b-0 active:translate-y-1">
-            <FaApple className="h-9 w-9" aria-hidden="true" />
+          <a
+            href="/download"
+            className="flex min-w-[260px] items-center gap-4 rounded-2xl bg-white border-b-4 border-line px-8 py-4 text-ink-900 transition-all duration-100 hover:bg-brand-yellowBg active:border-b-0 active:translate-y-1"
+          >
+            <FaAndroid className="h-9 w-9" aria-hidden="true" />
             <span className="text-left">
               <span className="block text-xs font-bold uppercase tracking-wide text-ink-600">
-                Download on the
+                Download latest
               </span>
-              <span className="block text-xl font-black">App Store</span>
+              <span className="block text-xl font-black">Android APK</span>
             </span>
-          </button>
+          </a>
 
-          <button className="flex min-w-[260px] items-center gap-4 rounded-2xl bg-white border-b-4 border-line px-8 py-4 text-ink-900 transition-all duration-100 hover:bg-brand-yellowBg active:border-b-0 active:translate-y-1">
-            <SiGoogleplay className="h-8 w-8" aria-hidden="true" />
+          <a
+            href="https://github.com/VoiceChess/VoiceChess-Mobile/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-w-[260px] items-center gap-4 rounded-2xl bg-white border-b-4 border-line px-8 py-4 text-ink-900 transition-all duration-100 hover:bg-brand-yellowBg active:border-b-0 active:translate-y-1"
+          >
+            <FaGithub className="h-8 w-8" aria-hidden="true" />
             <span className="text-left">
               <span className="block text-xs font-bold uppercase tracking-wide text-ink-600">
-                Get it on
+                View latest
               </span>
-              <span className="block text-xl font-black">Google Play</span>
+              <span className="block text-xl font-black">GitHub Release</span>
             </span>
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
